@@ -17,6 +17,12 @@ public class ArticleController {
         this.articleService = articleService;
     }
 
+    @GetMapping(value = "/")
+    public ResponseEntity<List<ArticleResponsModel>> findAllfirst() {
+        List<ArticleResponsModel> all = articleService.findAll();
+        return ResponseEntity.ok(all);
+    }
+
     @PostMapping(value = "/article")
     public ResponseEntity<ArticleResponsModel> createArticle(@RequestBody ArticleRequestModel articleRequestModel) {
         ArticleResponsModel article = articleService.createArticle(articleRequestModel);
