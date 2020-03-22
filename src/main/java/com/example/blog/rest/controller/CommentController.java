@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class CommentController {
     private final CommentService commentService;
 
