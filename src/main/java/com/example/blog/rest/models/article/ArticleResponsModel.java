@@ -18,6 +18,7 @@ public class ArticleResponsModel implements Serializable {
     private String author;
     private String title;
     private String content;
+    private String imgUrl;
     private Date date;
     private List<Comment> commentList;
 
@@ -69,6 +70,14 @@ public class ArticleResponsModel implements Serializable {
         this.commentList = commentList;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,13 +87,14 @@ public class ArticleResponsModel implements Serializable {
                 Objects.equals(author, that.author) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(content, that.content) &&
+                Objects.equals(imgUrl, that.imgUrl) &&
                 Objects.equals(date, that.date) &&
                 Objects.equals(commentList, that.commentList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, author, title, content, date, commentList);
+        return Objects.hash(id, author, title, content, imgUrl, date, commentList);
     }
 
     @Override
@@ -94,6 +104,7 @@ public class ArticleResponsModel implements Serializable {
                 ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
                 ", date=" + date +
                 ", commentList=" + commentList +
                 '}';

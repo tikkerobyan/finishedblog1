@@ -9,6 +9,7 @@ public class ArticleRequestModel implements Serializable {
     private String author;
     private String title;
     private String content;
+    private String imgUrl;
 
     public String getAuthor() {
         return author;
@@ -34,6 +35,14 @@ public class ArticleRequestModel implements Serializable {
         this.content = content;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,12 +50,13 @@ public class ArticleRequestModel implements Serializable {
         ArticleRequestModel that = (ArticleRequestModel) o;
         return Objects.equals(author, that.author) &&
                 Objects.equals(title, that.title) &&
-                Objects.equals(content, that.content);
+                Objects.equals(content, that.content) &&
+                Objects.equals(imgUrl, that.imgUrl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(author, title, content);
+        return Objects.hash(author, title, content, imgUrl);
     }
 
     @Override
@@ -55,6 +65,7 @@ public class ArticleRequestModel implements Serializable {
                 "author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
                 '}';
     }
 }

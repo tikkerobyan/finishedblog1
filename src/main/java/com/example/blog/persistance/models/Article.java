@@ -1,6 +1,7 @@
 package com.example.blog.persistance.models;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.cfg.annotations.Nullability;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -26,8 +27,12 @@ public class Article {
     @Lob
     private String content;
 
+    @Lob()
+    private String imgUrl;
+
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
+    @Column(columnDefinition="TEXT")
     private Date date;
 
     public Long getId() {
@@ -70,6 +75,14 @@ public class Article {
         this.date = date;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,12 +92,13 @@ public class Article {
                 Objects.equals(author, article.author) &&
                 Objects.equals(title, article.title) &&
                 Objects.equals(content, article.content) &&
+                Objects.equals(imgUrl, article.imgUrl) &&
                 Objects.equals(date, article.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, author, title, content, date);
+        return Objects.hash(id, author, title, content, imgUrl, date);
     }
 
     @Override
@@ -94,6 +108,7 @@ public class Article {
                 ", author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
                 ", date=" + date +
                 '}';
     }

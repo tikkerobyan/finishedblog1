@@ -27,6 +27,7 @@ public class ArticleService {
         article.setAuthor(articleRequestModel.getAuthor());
         article.setContent(articleRequestModel.getContent());
         article.setTitle(articleRequestModel.getTitle());
+        article.setImgUrl(articleRequestModel.getImgUrl());
         return article;
     }
 
@@ -37,6 +38,7 @@ public class ArticleService {
         articleResponsModel.setTitle(article.getTitle());
         articleResponsModel.setDate(article.getDate());
         articleResponsModel.setId(article.getId());
+        articleResponsModel.setImgUrl(article.getImgUrl());
         List<Comment> allByArticle_id = commentRepository.findAllByArticle_Id(article.getId());
         articleResponsModel.setCommentList(allByArticle_id);
         return articleResponsModel;
