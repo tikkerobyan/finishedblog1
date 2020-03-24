@@ -47,4 +47,8 @@ public class ArticleController {
         ArticleResponsModel byId = articleService.findById(id);
         return ResponseEntity.ok(byId);
     }
+     @DeleteMapping(value = "/articlee/{id}")
+    public void deleteArticle(@PathVariable Long id){
+        articleService.deleteArticle(id);
+    }
 }
